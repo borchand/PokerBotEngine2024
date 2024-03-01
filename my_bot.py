@@ -22,26 +22,26 @@ class Bot:
               if can_raise:
                   return obs.get_min_raise()
               else:
-                return self.cal_raise(obs)
+                return self.call_raise(obs)
 
       if obs.current_round == 1 or obs.current_round == 2:
           if current_board_hand >= 2:
               if can_raise and my_hand > board:
                   return obs.get_min_raise()
               else:
-                return self.cal_raise(obs)
+                return self.call_raise(obs)
 
           if current_board_hand >= 9 and my_hand > board:
               return obs.get_max_raise()
           else:
-              return self.cal_raise(obs)
+              return self.call_raise(obs)
 
       if obs.current_round == 3:
           if current_board_hand >= 3:
               if can_raise and my_hand > board:
                   return obs.get_min_raise()
               else:
-                return self.cal_raise(obs)
+                return self.call_raise(obs)
 
 
           if current_board_hand >= 8:
@@ -50,7 +50,7 @@ class Bot:
           if current_board_hand >= 5 and my_hand > board:
               return obs.get_min_raise() * 2
           else:
-              return self.cal_raise(obs)
+              return self.call_raise(obs)
           
 
       if obs.current_round == 4:
@@ -64,7 +64,7 @@ class Bot:
       # return 1 - Returning 1 will call or check
       # return x > 1 - Returning a number greater than 1 will raise
   
-  def cal_raise(self, obs: Observation):
+  def call_raise(self, obs: Observation):
     # instead of calling 1 to make sure we done go all in :)
     can_raise = obs.can_raise()
     my_player_info = obs.get_my_player_info()
