@@ -16,7 +16,7 @@ def run_benchmark(bots, run_count):
 def run_table(bots):
     bot_instances = [b.Bot() for b in bots]
 
-    res, _ = play_tournament_table(bot_instances, 100, use_timeout=False, console_output=True)
+    res, _ = play_tournament_table(bot_instances, 1000, use_timeout=False, console_output=True)
     print()
     print("bots ordered by final position")
     print([r['name'] for r in res])
